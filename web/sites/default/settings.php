@@ -88,7 +88,16 @@
  * ];
  * @endcode
  */
-$databases = [];
+$databases['default']['default'] = array(
+  'database' => getenv('DB_DATABASE'),
+  'username' => getenv('DB_USERNAME'),
+  'password' => getenv('DB_PASSWORD'),
+  'host' => getenv('DB_HOST'),
+  'port' => getenv('DB_PORT'),
+  'driver' => getenv('DB_CONNECTION'),
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+);
 
 /**
  * Customizing database settings.
