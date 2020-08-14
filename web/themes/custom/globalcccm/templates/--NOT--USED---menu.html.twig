@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *
+ * @ingroup templates
+ */
+#}
+<div class="navigation-container">
+
+	<div class="search">
+					<!-- Start Search Block -->
+
+
+										
+							<!--div class="column"-->
+								<div id="sb-search" class="sb-search">
+								
+									<form class="search-form" data-drupal-selector="search-form" action="/search/node" method="get" id="search-form" accept-charset="UTF-8" data-drupal-form-fields="edit-keys,edit-submit,edit-or,edit-phrase,edit-negative,edit-type-article,edit-type-contact-us,edit-type-forum,edit-type-page,edit-type-report,edit-type-tool,edit-language-en,edit-language-af,edit-language-ar,edit-language-bn,edit-language-fr,edit-language-und,edit-language-zxx,edit-submit--2">						
+										<input class="sb-search-input" placeholder="Search" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" id="search">
+										<input class="sb-search-submit" type="submit" value="">
+										<span class="fa fa-search sb-icon-search" style="padding:5px; font-size:40px;"></span>
+										
+									</form>
+								</div>
+							<!--/div-->
+			
+				 <script src="https://womenindisplacement.org/themes/iomwpp/js/search/classie.js"></script>
+				<script src="https://womenindisplacement.org/themes/iomwpp/js/search/uisearch.js"></script>
+				
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+				<!-- End Search Block -->
+	</div>
+
+	<div class="wpp-main-menu">
+	{% import _self as menus %}
+
+	{#
+	  We call a macro which calls itself to render the full tree.
+	  @see http://twig.sensiolabs.org/doc/tags/macro.html
+	#}
+	{{ menus.menu_links(items, attributes, 0) }}
+
+	{% macro menu_links(items, attributes, menu_level) %}
+	  {% import _self as menus %}
+	  {% if items %}
+		{% if menu_level == 0 %}
+		  <ul class="sm menu-base-theme" id="main-menu" {{ attributes.addClass('menu', 'nav', 'navbar-nav') }}>
+		{% else %}
+		  <ul>
+		{% endif %}
+		{% for item in items %}
+		  {% if menu_level == 0 and item.is_expanded %}
+			<li>
+			<a href="{{ item.url }}" data-target="#" data-toggle="dropdown">{{ item.title }}</a>
+		  {% else %}
+			<li{{ item.attributes }}>
+			{{ link(item.title, item.url) }}
+		  {% endif %}
+		  {% if item.below %}
+			{{ menus.menu_links(item.below, attributes.removeClass('nav', 'navbar-nav'), menu_level + 1) }}
+		  {% endif %}
+		  </li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endmacro %}
+	</div>
+	
+</div>

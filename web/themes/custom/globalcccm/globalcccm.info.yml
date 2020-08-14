@@ -1,0 +1,41 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'Global CCCM Cluster'
+description: 'Global CCCM  Cluster.'
+package: 'Bootstrap'
+
+regions:
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  
+  fpintro: 'First Page top Introduction'
+
+  introduction: 'First page main block - left'
+  twitterfeed: 'First page block - right'
+  
+  sidebar_first: 'HID Login'
+  sidebar_second: 'Sidebar'
+
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  
+  copyright: 'Last Block One'
+  middleblockfoot: 'Last Block Two'
+  credit: 'Last Block Three'
+  lastfour: 'Last Block Four'
+  
+  lastbelow1: 'Last Block Below First'
+  lastbelow2: 'Last Block Below Second'
+  
+  naksa: 'CCCM MAP'
+  footer: 'Footer'
+  hidden: 'Hidden'
+
+libraries:
+  - 'globalcccm/global-styling'
