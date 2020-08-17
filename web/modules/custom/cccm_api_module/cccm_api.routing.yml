@@ -1,0 +1,7 @@
+cccm_api:
+   path: /cccm/api
+   defaults:
+      _controller: Drupal\cccm_api\Controller\CCCMAPIController::CCCM
+
+   requirements:
+      _permission: ‘access content’
