@@ -7,7 +7,8 @@ RUN apk add --no-cache --virtual .build-deps \
     libpng-dev \
     libzip-dev \
     libxml2-dev \
-    $PHPIZE_DEPS \
+    pcre-dev \
+    ${PHPIZE_DEPS} \
     && docker-php-ext-configure gd \
       --with-freetype \
       --with-jpeg=/usr/include \
@@ -19,7 +20,9 @@ RUN apk add --no-cache --virtual .build-deps \
       bcmath \
       soap \
     && pecl install redis-3.1.1 \
+    && pecl install oauth-2.0.5 \
     && docker-php-ext-enable redis \
+    && docker-php-ext-enable oauth \
     && apk add --no-cache \
       libpng \
       libjpeg \
