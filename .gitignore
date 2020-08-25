@@ -25,6 +25,8 @@ node_modules/
 cghooks.lock
 yarn-error.log
 
+web/themes/custom/globalcccm/css/*
+
 # Docker
 docker-compose.yml
 
