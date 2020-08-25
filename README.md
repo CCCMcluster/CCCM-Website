@@ -25,3 +25,17 @@ installation.
 - Disable a module: `drush pm:uninstall {name_of_module}`
 - Check Drupal Composer packages for security updates: `drush pm:security`
 - Check watchdog (logged events): `drush ws`
+
+# Customizing Theme
+This website uses Bootstrap as a base theme and the globalcccm theme is a bootstrap extension of it.
+If any theme changes is needed to be done, follow steps below
+`cd web/themes/custom/globalcccm`
+- Enable debug mode
+- Edit the gulpfile.js and change the proxy to your server URL followed by installing dependencies and creating js,css.
+`````
+browserSync.init({
+    proxy: 'http://yourdomain.com',
+})
+yarn
+yarn gulp
+`````

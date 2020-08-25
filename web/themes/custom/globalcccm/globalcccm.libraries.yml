@@ -1,7 +1,4 @@
 global-styling:
   css:
     theme:
-      css/style.css: {}
-      css/map/jquery-jvectormap.css: {}
-      css/dropdown-hover-style.css: {}
-      css/style-media.css: {}
+      css/style.min.css: {}
