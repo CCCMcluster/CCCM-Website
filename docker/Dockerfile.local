@@ -31,6 +31,7 @@ RUN apk add --no-cache --virtual .build-deps \
       git \
       # for drush command
       mysql-client \
+      -u yarn \
     ; \
     runDeps="$( \
             scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
