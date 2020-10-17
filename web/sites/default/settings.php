@@ -805,3 +805,9 @@ $settings['migrate_node_migrate_type_classic'] = false;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $settings['config_sync_directory'] = '../config/sync';
+
+$settings['trusted_host_patterns'] = array(
+   '^cccmcluster\.org$',
+   '^globalcccmcluster\.org$',
+   '^www\.globalcccmcluster\.org$',
+);
