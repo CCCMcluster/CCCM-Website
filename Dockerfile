@@ -45,7 +45,7 @@ RUN apk add --no-cache --virtual .build-deps \
 RUN curl -sS https://getcomposer.org/installer \
     | php -- --install-dir=/usr/bin --filename=composer
 
-RUN composer global require hirak/prestissimo
+RUN composer self-update 1.10.19
 
 WORKDIR /var/www
 
